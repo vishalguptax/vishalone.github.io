@@ -227,6 +227,17 @@ change stream feeds the alert engine (Web Push / Telegram / email) and the deal 
 3. Alerts: target-price rules, a fast re-check tier for watched items, Telegram bot and
    Web Push. Then add the deal detector on the same event stream.
 
+## Where past prices can come from (checked 2026-10-13)
+
+| Source | Past data? | Status |
+|---|---|---|
+| **Amazon's own "Price history"** (link next to the price; 30/90/365 days; Amazon says it is live in India) | **Yes, the only first-party source** | The data must reach the browser when the user opens it, so an extension can read it on the user's own page view. **Endpoint not yet identified**: `amazon.in` is blocked from this environment. Needs a HAR of clicking "Price history" on an amazon.in product (desktop). |
+| Amazon product page / offers AJAX (`/dp/`, `aodAjaxMain`) | No (current price, MRP, offers only) | BuyHatke reads only `price, mrp, offerId, oos` from Amazon |
+| Flipkart page API (`rome.api.flipkart.com/api/4/page/…`) | No evidence of history | BuyHatke reads Flipkart but takes history from its own server; no native Flipkart price-history feature found in public sources |
+| BuyHatke extension v5.1.170 | Does **not** use Amazon's native history | No Amazon price-history or Rufus call in the bundle |
+| Wayback Machine / Common Crawl snapshots of product pages | Yes, but sparse (random dates, popular pages only) | Blocked from this environment; good for one-off backfill of popular products |
+| Keepa API (Amazon.in) | Yes, years of history | Paid |
+
 ## Remaining risks
 
 - **No backfill.** Past prices can't be obtained legitimately. History starts on the day
