@@ -1,0 +1,43 @@
+{
+  "evidence_id": "ev_29a36270f47f6fbc1295a2829ab2ab95f00c93eac1c85afb64451c5eaf7bbbdd",
+  "operation": "analyze_javascript_application",
+  "provider": {
+    "id": "rea-javascript-application",
+    "name": "REA JavaScript application analyzer",
+    "version": "1"
+  },
+  "confidence": "derived",
+  "authority": "shipped-artifact",
+  "subject": {
+    "name": "buyhatke-extension-5.1.170",
+    "sha256": "4ea26699b5c90161d51878a5912a3669da098ebe4732357cfff0400b851dd9dc",
+    "format": "directory"
+  },
+  "statistics": {
+    "relevant_files": 177,
+    "nested_asar_containers": 0,
+    "text_bytes_read": 8690093,
+    "invalid_utf8_files": 0,
+    "parsed_javascript_files": 145,
+    "visited_ast_nodes": 1700860,
+    "findings": 2054,
+    "modules": 0,
+    "parse_failures": 0
+  },
+  "semantic_coverage_status": "partial",
+  "graph_counts": {
+    "nodes": 819,
+    "edges": 1664,
+    "semantic_nodes": 42868,
+    "semantic_relations": 44991,
+    "unknowns": 36598
+  },
+  "limitations_count": 238,
+  "limitations_sample": [
+    "CommonJS and ESM binding relationships were recovered from inert syntax and resolved only within the inventoried artifact container.",
+    "Graph coverage is incomplete; unavailable facts remain explicit and must not be read as absence.",
+    "JavaScript and HTML were parsed as inert text; bundle bootstrap code was never executed.",
+    "Resource constraint during analyze_javascript_application: Expanded application relationships for assets/commonScrapper.js-loader-UrFa3ga8.js exceed the parent's result budget; complete static facts were retained on the file node",
+    "Resource constraint during analyze_javascript_application: Expanded application relationships for assets/constant-4PqTqfcb.js exceed the parent's result budget; complete static facts were retained on the file node"
+  ]
+}
